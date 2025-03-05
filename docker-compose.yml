@@ -1,0 +1,14 @@
+x-default-opts: &default-opts
+  restart: always
+  tty: true
+  stdin_open: true
+  privileged: false
+  ipc: private
+services:
+  openssl:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    <<: *default-opts
+    volumes:
+      - ./workspace:/workspace
